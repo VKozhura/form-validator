@@ -25,33 +25,25 @@ const isValidEmail = (email) => {
 	);
 };
 
+//get field name
+const getFieldName = (input) => {
+	return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+};
+
+//check requires fields
+const checkRequired = (inputArr) => {
+	inputArr.forEach((input) => {
+		if (input.value.trim() === "") {
+			showError(input, `${getFieldName(input)} is required`);
+		} else {
+			showSuccess(input);
+		}
+	});
+};
+
 // event listeners
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 
-	if (username.value === "") {
-		showError(username, "Username is required");
-	} else {
-		showSuccess(username);
-	}
-
-	if (email.value === "") {
-		showError(email, "Email is required");
-	} else if (!isValidEmail(email.value)) {
-		showError(email, "Email is not valid");
-	} else {
-		showSuccess(email);
-	}
-
-	if (password.value === "") {
-		showError(password, "Password is required");
-	} else {
-		showSuccess(password);
-	}
-
-	if (password2.value === "") {
-		showError(password2, "Confirm your password");
-	} else {
-		showSuccess(password2);
-	}
+	checkRequired([username, email, password, password2]);
 });
