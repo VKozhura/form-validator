@@ -54,6 +54,7 @@ h2 {
 	width: 100%;
 	padding: 10px;
 	font-size: 14px;
+	font-family: inherit;
 }
 
 .form-control input:focus {
@@ -92,4 +93,6 @@ h2 {
 	border: 2px solid #3498db;
 	border-radius: 4px;
 	color: #ffffff;
+	font-family: inherit;
+	font-size: 16px;
 }
